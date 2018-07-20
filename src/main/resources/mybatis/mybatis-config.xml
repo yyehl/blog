@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--
+    这个文件是必须要的，SqlSessionFactoryBuilder靠这个文件来生成SqlSessionFactory
+    通常全局保持一个SqlSessionFactory就行来，如果只有一个数据库的话
+    SqlSessionFactory根据xxxMapper接口来自动生成mapper查询对象
+    通过mapper来进行查询
+    这整个过程都交给 Spring-mybatis 来自动执行了
+    但是还是需要 mybatis-config.xml 这个全局配置文件来进行初始化
+    后续的Mapper.xml文件以及对应的mapper接口，和队形的PO javaBean类
+    都通过 spring-dao.xml 这个文件来进行配置
+-->
+
+<configuration>
+    <!-- 配置全局属性 -->
+    <settings>
+        <!-- 使用jdbc的getGeneratedKeys获取数据库自增主键值 -->
+        <setting name="useGeneratedKeys" value="true" />
+        <!-- 开启驼峰命名转换:Table{create_time} -> Entity{createTime} -->
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+    </settings>
+</configuration>
